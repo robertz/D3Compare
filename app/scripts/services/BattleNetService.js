@@ -9,7 +9,7 @@
   function BattleNetService($http) {
     return {
       getAccount: getBNetAccount,
-      getHero   : getBNetHero
+      getHero: getBNetHero
     };
 
     function getBNetAccount(account) {
