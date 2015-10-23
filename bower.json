@@ -1,0 +1,20 @@
+{
+  "name": "D3Compare",
+  "version": "0.0.1",
+  "authors": [
+    "Robert Zehnder <robert@kisdigital.com>"
+  ],
+  "description": "Diablo 3 character compare tool",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/vendor/",
+    "test",
+    "tests"
+  ]
+}

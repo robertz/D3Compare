@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="app/vendor/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container" ng-controller="ShellController as shell">
+    <div class="row">
+
+      <div class="col-md-6 form-inline">
+        <input type="text" class="form-control" ng-model="shell.leftAccountInput" />
+        <input type="button" class="btn btn-primary" value="Get Account" ng-click="shell.getLeftAccount()" />
+      </div>
+      <div class="col-md-6 form-inline">
+        <input type="text" class="form-control" ng-model="shell.rightAccountInput" ng-change="shell.getLeftHero()" />
+        <input type="button" class="btn btn-primary" value="Get Account" ng-click="shell.getRightAccount()" />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <br />
+      <select ng-options="hero.name for hero in shell.leftAccount.heroes track by hero.id" ng-model="shell.leftSelect" ng-change="shell.getLeftHero()" class="form-control">
+        <option value="">Select Character</option>
+      </select>
+      <br />
+    </div>
+    <div class="col-md-6">
+      <br />
+      <select ng-options="hero.name for hero in shell.rightAccount.heroes track by hero.id" ng-model="shell.rightSelect" ng-change="shell.getRightHero()" class="form-control">
+        <option value="">Select Character</option>
+      </select>
+      <br />
+    </div>
+
+    <div class="col-md-6">
+      <div class="left-data-wrap" ng-show="shell.leftActive">
+        <table class="table table-striped">
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr ng-repeat="(key, value) in shell.leftCharacterData.stats">
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+          </tr>
+        </table>
+      </div>
+      <pre>{{shell.leftCharacterData | json}}</pre>
+    </div>
+
+    <div class="col-md-6">
+      <div class="right-data-wrap" ng-show="shell.rightActive">
+        <table class="table table-striped">
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr ng-repeat="(key, value) in shell.rightCharacterData.stats">
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+          </tr>
+        </table>
+      </div>
+      <pre>{{shell.rightCharacterData | json}}</pre>
+    </div>
+
+  </div>
+
+  <!-- vendor -->
+  <script src="app/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="app/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="app/vendor/angular/angular.min.js"></script>
+
+  <!-- app modules -->
+  <script src="app/js/app.module.js"></script>
+
+  <!-- app services -->
+  <script src="app/js/services/BattleNetService.js"></script>
+
+  <!-- app controllers -->
+  <script src="app/js/controllers/ShellController.js"></script>
+</body>
+</html>
