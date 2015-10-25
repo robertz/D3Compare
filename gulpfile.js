@@ -1,3 +1,5 @@
+'use strict';
+
 /* jshint camelcase:false */
 var gulp = require('gulp');
 var paths = require('./gulp.config.json');
@@ -22,6 +24,16 @@ gulp.task('vendorcss', function() {
     .pipe(plug.concat('vendor.min.css'))
     .pipe(plug.minifyCss())
     .pipe(gulp.dest(paths.build + 'content'));
+});
+
+gulp.task('sass', function() {
+  return gulp.src('app/content/sass/**/*.scss')
+    .pipe(plug.sass({outputStyle: 'compressed'}))
+    .pipe(gulp.dest('app/content'));
+});
+
+gulp.task('watch', function() {
+  gulp.watch('app/content/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('js', function() {
