@@ -11,3 +11,26 @@ body {
   height: 50px;
   background-color: rgba(44, 44, 44, 0.95);
 }
+
+.d3-navbar .logo {
+  display: inline-block;
+  line-height: 50px;
+  margin: 0 16px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.d3-navbar .links {
+  display: inline-block;
+  line-height: 50px;
+  margin: 0 16px;
+}
+
+.d3-navbar .links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.d3-navbar .links a:hover {
+  cursor: pointer;
+}

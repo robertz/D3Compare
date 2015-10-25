@@ -16,5 +16,8 @@
     "app/vendor/",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "underscore": "~1.8.3"
+  }
 }

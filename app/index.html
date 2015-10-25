@@ -8,49 +8,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="vendor/ng-dialog/css/ngDialog.css" />
   <link rel="stylesheet" href="vendor/ng-dialog/css/ngDialog-theme-default.css" />
   <link rel="stylesheet" href="content/site.css" />
 </head>
-<body>
+<body ng-controller="ShellController as shell">
   <div class="d3-navbar">
-    Navbar
+    <span class="logo">
+      D3Compare
+    </span>
+    <span class="links">
+      <a ng-click="shell.showAbout($event)">About</a>
+    </span>
   </div>
-  <div class="container" ng-controller="ShellController as shell">
+  <div class="container" ng-controller="CompareController as compare">
     <div class="row">
 
       <div class="col-md-6 form-inline">
-        <input type="text" class="form-control" ng-model="shell.leftAccountInput" />
-        <input type="button" class="btn btn-primary" value="Get Account" ng-click="shell.getLeftAccount()" />
+        <input type="text" class="form-control" ng-model="compare.leftAccountInput" />
+        <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getLeftAccount()" />
       </div>
       <div class="col-md-6 form-inline">
-        <input type="text" class="form-control" ng-model="shell.rightAccountInput" ng-change="shell.getLeftHero()" />
-        <input type="button" class="btn btn-primary" value="Get Account" ng-click="shell.getRightAccount()" />
+        <input type="text" class="form-control" ng-model="compare.rightAccountInput" ng-change="compare.getLeftHero()" />
+        <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getRightAccount()" />
       </div>
     </div>
 
     <div class="col-md-6">
       <br />
-      <select ng-options="hero.name for hero in shell.leftAccount.heroes track by hero.id" ng-model="shell.leftSelect" ng-change="shell.getLeftHero()" class="form-control">
+      <select ng-options="hero.name for hero in compare.leftAccount.heroes track by hero.id" ng-model="compare.leftSelect" ng-change="compare.getLeftHero()" class="form-control">
         <option value="">Select Character</option>
       </select>
       <br />
     </div>
     <div class="col-md-6">
       <br />
-      <select ng-options="hero.name for hero in shell.rightAccount.heroes track by hero.id" ng-model="shell.rightSelect" ng-change="shell.getRightHero()" class="form-control">
+      <select ng-options="hero.name for hero in compare.rightAccount.heroes track by hero.id" ng-model="compare.rightSelect" ng-change="compare.getRightHero()" class="form-control">
         <option value="">Select Character</option>
       </select>
       <br />
     </div>
 
     <div class="col-md-6">
-      <div class="left-data-wrap" ng-show="shell.leftActive">
+      <div class="left-data-wrap" ng-show="compare.leftActive">
         <table class="table table-striped">
           <tr>
             <th>Key</th>
             <th>Value</th>
           </tr>
-          <tr ng-repeat="(key, value) in shell.leftCharacterData.stats">
+          <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
             <td>{{key}}</td>
             <td>{{value}}</td>
           </tr>
@@ -61,7 +67,7 @@
             <th>Key</th>
             <th>Value</th>
           </tr>
-          <tr ng-repeat="item in shell.leftCharacterData.skills.active">
+          <tr ng-repeat="item in compare.leftCharacterData.skills.active">
             <td>{{item.skill.name}}</td>
             <td>{{item.skill.description}}</td>
           </tr>
@@ -72,7 +78,7 @@
             <th>Key</th>
             <th>Value</th>
           </tr>
-          <tr ng-repeat="item in shell.leftCharacterData.skills.passive">
+          <tr ng-repeat="item in compare.leftCharacterData.skills.passive">
             <td>{{item.skill.name}}</td>
             <td>{{item.skill.description}}</td>
           </tr>
@@ -83,39 +89,74 @@
             <th>Slot</th>
             <th>Description</th>
           </tr>
-          <tr ng-repeat="item in shell.leftCharacterData.items">
+          <tr ng-repeat="item in compare.leftCharacterData.items">
             <td>{{$index}}</td>
             <td>{{item.name}}</td>
           </tr>
         </table>
 
       </div>
-      <pre>{{shell.leftCharacterData | json}}</pre>
+      <pre>{{compare.leftCharacterData | json}}</pre>
     </div>
 
     <div class="col-md-6">
-      <div class="right-data-wrap" ng-show="shell.rightActive">
+      <div class="right-data-wrap" ng-show="compare.rightActive">
         <table class="table table-striped">
           <tr>
             <th>Key</th>
             <th>Value</th>
           </tr>
-          <tr ng-repeat="(key, value) in shell.rightCharacterData.stats">
+          <tr ng-repeat="(key, value) in compare.rightCharacterData.stats">
             <td>{{key}}</td>
             <td>{{value}}</td>
           </tr>
         </table>
+
+        <table class="table table-striped">
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr ng-repeat="item in compare.rightCharacterData.skills.active">
+            <td>{{item.skill.name}}</td>
+            <td>{{item.skill.description}}</td>
+          </tr>
+        </table>
+
+        <table class="table table-striped">
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr ng-repeat="item in compare.rightCharacterData.skills.passive">
+            <td>{{item.skill.name}}</td>
+            <td>{{item.skill.description}}</td>
+          </tr>
+        </table>
+
+        <table class="table table-striped">
+          <tr>
+            <th>Slot</th>
+            <th>Description</th>
+          </tr>
+          <tr ng-repeat="item in compare.rightCharacterData.items">
+            <td>{{$index}}</td>
+            <td>{{item.name}}</td>
+          </tr>
+        </table>
+        
       </div>
-      <pre>{{shell.rightCharacterData | json}}</pre>
+      <pre>{{compare.rightCharacterData | json}}</pre>
     </div>
 
   </div>
 
   <!-- vendor -->
   <script src="vendor/jquery/dist/jquery.js"></script>
+  <script src="vendor/underscore/underscore-min.js"></script>
   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
   <script src="vendor/angular/angular.js"></script>
-  <script src="vendor/ng-dialog/ngDialog.js"></script>
+  <script src="vendor/ng-dialog/js/ngDialog.js"></script>
 
   <!-- app modules -->
   <script src="scripts/app.module.js"></script>
@@ -125,5 +166,6 @@
 
   <!-- app controllers -->
   <script src="scripts/controllers/ShellController.js"></script>
+  <script src="scripts/controllers/CompareController.js"></script>
 </body>
 </html>
