@@ -1,0 +1,18 @@
+{
+  "vendorjs": [
+    "app/vendor/jquery/dist/jquery.js",
+    "app/vendor/angular/angular.js",
+    "app/vendor/bootstrap/dist/js/bootstrap.js"
+  ],
+  "vendorcss": [
+    "app/vendor/bootstrap/dist/css/bootstrap.min.css",
+    "app/vendor/ng-dialog/css/ngDialog-theme-default.min.css"
+  ],
+  "js": [
+    "app/scripts/**/*.js"
+  ],
+  "css": [
+    "app/content/site.css"
+  ],
+  "build": "./build/"
+}
