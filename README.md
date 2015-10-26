@@ -19,3 +19,10 @@ based applications, design patterns and best practices.
 - gulp clean - clean the build directory
 - gulp build - builds the optimized app. still needs work
 - gulp watch - watch scss files to build css
+
+### Running DEV server
+I generally use the node http-server for development purposes:
+```
+cd app
+http-server
+```
