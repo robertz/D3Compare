@@ -1,13 +1,15 @@
 {
   "vendorjs": [
     "app/vendor/jquery/dist/jquery.js",
-    "app/vendor/angular/angular.js",
+    "app/vendor/underscore/underscore.js",
     "app/vendor/bootstrap/dist/js/bootstrap.js",
-    "app/vendor/underscore/underscore.js"
+    "app/vendor/angular/angular.js",
+    "app/vendor/ng-dialog/js/ngDialog.js"
   ],
   "vendorcss": [
     "app/vendor/bootstrap/dist/css/bootstrap.min.css",
-    "app/vendor/ng-dialog/css/ngDialog-theme-default.min.css"
+    "app/vendor/ng-dialog/css/ngDialog-theme-default.min.css",
+    "app/vendor/font-awesome/css/font-awesome.css"
   ],
   "js": [
     "app/scripts/**/*.js"

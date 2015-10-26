@@ -18,8 +18,8 @@
         ngDialog.closeAll();
         aboutResult = ngDialog.open({
           template: 'views/about.html',
-          overlay: true,
-          className: 'ngdialog-theme-default',
+          overlay: false,
+          className: 'about',
           scope: $('body > div').scope()
         });
         // $('body').addClass('about');
