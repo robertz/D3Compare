@@ -22,6 +22,15 @@
     vm.getLeftHero = getLeftHero;
     vm.getRightHero = getRightHero;
 
+    vm.classLabel = {
+      'barbarian': 'Barbarian',
+      'crusader': 'Crusader',
+      'demon-hunter': 'Demon Hunter',
+      'monk': 'Monk',
+      'witch-doctor': 'Witch Doctor',
+      'wizard': 'Wizard'
+    };
+
     vm.leftActive = false;
     vm.rightActive = false;
 

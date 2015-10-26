@@ -4,7 +4,8 @@
     "app/vendor/underscore/underscore.js",
     "app/vendor/bootstrap/dist/js/bootstrap.js",
     "app/vendor/angular/angular.js",
-    "app/vendor/ng-dialog/js/ngDialog.js"
+    "app/vendor/ng-dialog/js/ngDialog.js",
+    "app/vendor/angular-ui-router/angular-ui-router.js"
   ],
   "vendorcss": [
     "app/vendor/bootstrap/dist/css/bootstrap.min.css",
