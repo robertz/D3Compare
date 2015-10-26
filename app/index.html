@@ -51,6 +51,18 @@
 
     <div class="col-md-6">
       <div class="left-data-wrap" ng-show="compare.leftActive">
+
+        <table class="table table-striped">
+          <tr>
+            <th>Slot</th>
+            <th>Description</th>
+          </tr>
+          <tr ng-repeat="item in compare.leftCharacterData.items">
+            <td>{{$index}}</td>
+            <td>{{item.name}}</td>
+          </tr>
+        </table>
+
         <table class="table table-striped">
           <tr>
             <th>Key</th>
@@ -84,23 +96,24 @@
           </tr>
         </table>
 
+      </div>
+      <pre ng-if="compare.debug">{{compare.leftCharacterData | json}}</pre>
+    </div>
+
+    <div class="col-md-6">
+      <div class="right-data-wrap" ng-show="compare.rightActive">
+
         <table class="table table-striped">
           <tr>
             <th>Slot</th>
             <th>Description</th>
           </tr>
-          <tr ng-repeat="item in compare.leftCharacterData.items">
+          <tr ng-repeat="item in compare.rightCharacterData.items">
             <td>{{$index}}</td>
             <td>{{item.name}}</td>
           </tr>
         </table>
 
-      </div>
-      <pre>{{compare.leftCharacterData | json}}</pre>
-    </div>
-
-    <div class="col-md-6">
-      <div class="right-data-wrap" ng-show="compare.rightActive">
         <table class="table table-striped">
           <tr>
             <th>Key</th>
@@ -134,19 +147,8 @@
           </tr>
         </table>
 
-        <table class="table table-striped">
-          <tr>
-            <th>Slot</th>
-            <th>Description</th>
-          </tr>
-          <tr ng-repeat="item in compare.rightCharacterData.items">
-            <td>{{$index}}</td>
-            <td>{{item.name}}</td>
-          </tr>
-        </table>
-        
       </div>
-      <pre>{{compare.rightCharacterData | json}}</pre>
+      <pre ng-if="compare.debug">{{compare.rightCharacterData | json}}</pre>
     </div>
 
   </div>
@@ -165,7 +167,7 @@
   <script src="scripts/services/BattleNetService.js"></script>
 
   <!-- app controllers -->
-  <script src="scripts/controllers/ShellController.js"></script>
-  <script src="scripts/controllers/CompareController.js"></script>
+  <script src="scripts/shell/ShellController.js"></script>
+  <script src="scripts/compare/CompareController.js"></script>
 </body>
 </html>

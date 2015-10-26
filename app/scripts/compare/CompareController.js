@@ -25,6 +25,8 @@
     vm.leftActive = false;
     vm.rightActive = false;
 
+    vm.debug = false;
+
     function getLeftAccount() {
       BattleNetService
         .getAccount(vm.leftAccountInput)
