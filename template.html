@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="content/vendor.min.css" />
+  <link rel="stylesheet" href="content/all.min.css" />
+</head>
+<body ng-controller="ShellController as shell">
+  <div class="d3-navbar">
+    <span class="logo">
+      D3Compare
+    </span>
+    <span class="links">
+      <a ng-click="shell.showAbout($event)">About</a>
+    </span>
+  </div>
+  <div class="container">
+    <div ui-view></div>
+  </div>
+  <script src="vendor.min.js"></script>
+  <script src="all.min.js"></script>
+  <script src="templates.js"></script>
+</body>
+</html>

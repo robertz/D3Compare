@@ -1,5 +1,3 @@
-'use strict';
-
 /* jshint camelcase:false */
 var gulp = require('gulp');
 var paths = require('./gulp.config.json');
@@ -36,13 +34,30 @@ gulp.task('watch', function() {
   gulp.watch('app/content/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('js', function() {
+gulp.task('templatecache', function() {
+  log('Creating an AngularJS $templateCache');
+
+  return gulp
+      .src(paths.htmltemplates)
+      // .pipe(plug.bytediff.start())
+      .pipe(plug.minifyHtml({
+          empty: true
+      }))
+      // .pipe(plug.bytediff.stop(bytediffFormatter))
+      .pipe(plug.angularTemplatecache('templates.js', {
+          module: 'app',
+          standalone: false,
+          root: 'views/'
+      }))
+      .pipe(gulp.dest(paths.build));
+});
+
+gulp.task('js', ['templatecache'], function() {
   log('Bundling, minifying, and copying JavaScript');
 
   var source = [].concat(paths.js); //, paths.build + 'templates.js'
   return gulp
       .src(source)
-      .pipe(plug.sourcemaps.init()) // get screwed up in the file rev process
       .pipe(plug.concat('all.min.js'))
       .pipe(plug.ngAnnotate({
           add: true,
@@ -53,7 +68,6 @@ gulp.task('js', function() {
           mangle: true
       }))
       // .pipe(plug.bytediff.stop(bytediffFormatter))
-      .pipe(plug.sourcemaps.write('./'))
       .pipe(gulp.dest(paths.build));
 
 });
@@ -70,13 +84,56 @@ gulp.task('css', function() {
     .pipe(gulp.dest(paths.build + 'content'));
 });
 
-gulp.task('build', ['vendorjs', 'js', 'vendorcss', 'css'], function() {
+gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss'], function() {
+    log('Rev\'ing files and building index.html');
+
+    var minified = paths.build + '**/*.min.*';
+    var index = paths.client + 'index.html';
+    var minFilter = plug.filter(['**/*.min.*', '!**/*.map']);
+    var indexFilter = plug.filter(['index.html']);
+
+    var stream = gulp
+        // Write the revisioned files
+        .src([].concat(minified, index)) // add all built min files and index.html
+        .pipe(minFilter) // filter the stream to minified css and js
+        .pipe(plug.rev()) // create files with rev's
+        .pipe(gulp.dest(paths.build)) // write the rev files
+        .pipe(minFilter.restore()) // remove filter, back to original stream
+
+    // inject the files into index.html
+    .pipe(indexFilter) // filter to index.html
+    .pipe(inject('content/vendor.min.css', 'inject-vendor'))
+        .pipe(inject('content/all.min.css'))
+        .pipe(inject('vendor.min.js', 'inject-vendor'))
+        .pipe(inject('all.min.js'))
+        .pipe(gulp.dest(paths.build)) // write the rev files
+    .pipe(indexFilter.restore()) // remove filter, back to original stream
+
+    // replace the files referenced in index.html with the rev'd files
+    .pipe(plug.revReplace()) // Substitute in new filenames
+    .pipe(gulp.dest(paths.build)) // write the index.html file changes
+    .pipe(plug.rev.manifest()) // create the manifest (must happen last or we screw up the injection)
+    .pipe(gulp.dest(paths.build)); // write the manifest
+
+    function inject(path, name) {
+        var pathGlob = paths.build + path;
+        var options = {
+            ignorePath: paths.build.substring(1),
+            read: false
+        };
+        if (name) {
+            options.name = name;
+        }
+        return plug.inject(gulp.src(pathGlob), options);
+    }
+});
+
+gulp.task('build', ['rev-and-inject'], function() {
   log('Building app...');
 })
 
 gulp.task('clean', function() {
-    log('Cleaning: ' + paths.build);
-
-    var delPaths = [].concat(paths.build);
-    del(delPaths);
+  log('Cleaning: ' + paths.build);
+  var delPaths = [].concat(paths.build);
+  del(delPaths);
 });
