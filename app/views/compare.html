@@ -12,14 +12,14 @@
 
  <div class="col-md-6">
    <br />
-   <select ng-options="hero.name + ' (' + hero.level + ' ' + compare.classLabel[hero.class] + ')' for hero in compare.leftAccount.heroes track by hero.id" ng-model="compare.leftSelect" ng-change="compare.getLeftHero()" class="form-control">
+   <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.leftAccount.heroes track by hero.id" ng-model="compare.leftSelect" ng-change="compare.getLeftHero()" class="form-control">
      <option value="">Select Character</option>
    </select>
    <br />
  </div>
  <div class="col-md-6">
    <br />
-   <select ng-options="hero.name + ' (' + hero.level + ' ' + compare.classLabel[hero.class] + ')' for hero in compare.rightAccount.heroes track by hero.id" ng-model="compare.rightSelect" ng-change="compare.getRightHero()" class="form-control">
+   <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.rightAccount.heroes track by hero.id" ng-model="compare.rightSelect" ng-change="compare.getRightHero()" class="form-control">
      <option value="">Select Character</option>
    </select>
    <br />
