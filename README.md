@@ -17,12 +17,20 @@ based applications, design patterns and best practices.
 
 ### Gulp tasks exposed
 - gulp clean - clean the build directory
-- gulp build - builds the optimized app. still needs work
+- gulp build - builds the optimized app.
 - gulp watch - watch scss files to build css
 
 ### Running DEV server
 I generally use the node http-server for development purposes:
 ```
 cd app
+http-server
+```
+
+### Running BUILD server
+```
+gulp clean && gulp build
+cd build
+cp ../template.html ./index.html
 http-server
 ```

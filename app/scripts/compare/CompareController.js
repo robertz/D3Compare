@@ -1,3 +1,4 @@
+/*jshint -W089 */
 (function() {
   'use strict';
   angular
@@ -65,7 +66,7 @@
         .getHero(vm.leftAccountInput, vm.leftSelect.id)
         .then(function(data) {
           vm.leftActive = true;
-          vm.leftCharacterData = {};
+          vm.leftCharacterData = {}; // clear data
           vm.leftCharacterData = data;
           recalcStatDiffs();
         });
@@ -76,7 +77,7 @@
         .getHero(vm.rightAccountInput, vm.rightSelect.id)
         .then(function(data) {
           vm.rightActive = true;
-          vm.rightCharacterData = {};
+          vm.rightCharacterData = {}; // clear data
           vm.rightCharacterData = data;
           recalcStatDiffs();
         });
