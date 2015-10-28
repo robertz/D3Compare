@@ -110,31 +110,47 @@
 
      </table>
 
-
-
-     <!-- <table class="table table-striped">
-       <tr>
-         <th>Key</th>
-         <th>Value</th>
-         <th>Difference</th>
-       </tr>
-       <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
-         <td>{{key}}</td>
-         <td>{{value}}</td>
-         <td>{{compare.stats.leftChar[key]}}</td>
-       </tr>
-     </table> -->
-
      <table class="table table-striped">
+
        <tr>
-         <th>Key</th>
-         <th>Value</th>
+         <td>LMB</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[0].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[0].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[0].rune.name}}</td>
        </tr>
-       <tr ng-repeat="item in compare.leftCharacterData.skills.active">
-         <td>{{item.skill.name}}</td>
-         <td>{{item.skill.description}}</td>
+
+       <tr>
+         <td>RMB</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[1].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[1].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[1].rune.name}}</td>
        </tr>
+
+       <tr>
+         <td>1</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[2].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[2].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[2].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>2</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[3].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[3].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[3].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>3</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[4].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[4].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[4].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>4</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[5].skill.icon}}.png" /></td>
+         <td><strong>{{compare.leftCharacterData.skills.active[5].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[5].rune.name}}</td>
+       </tr>
+
      </table>
+
+
 
      <table class="table table-striped">
        <tr>
@@ -142,8 +158,8 @@
          <th>Value</th>
        </tr>
        <tr ng-repeat="item in compare.leftCharacterData.skills.passive">
-         <td>{{item.skill.name}}</td>
-         <td>{{item.skill.description}}</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{item.skill.icon}}.png" /></td>
+         <td><strong>{{item.skill.name}}</strong><br />{{item.skill.description}}</td>
        </tr>
      </table>
 
@@ -250,14 +266,43 @@
      </table> -->
 
      <table class="table table-striped">
+
        <tr>
-         <th>Key</th>
-         <th>Value</th>
+         <td>LMB</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[0].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[0].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[0].rune.name}}</td>
        </tr>
-       <tr ng-repeat="item in compare.rightCharacterData.skills.active">
-         <td>{{item.skill.name}}</td>
-         <td>{{item.skill.description}}</td>
+
+       <tr>
+         <td>RMB</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[1].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[1].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[1].rune.name}}</td>
        </tr>
+
+       <tr>
+         <td>1</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[2].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[2].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[2].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>2</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[3].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[3].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[3].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>3</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[4].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[4].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[4].rune.name}}</td>
+       </tr>
+
+       <tr>
+         <td>4</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[5].skill.icon}}.png" /></td>
+         <td><strong>{{compare.rightCharacterData.skills.active[5].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[5].rune.name}}</td>
+       </tr>
+
      </table>
 
      <table class="table table-striped">
@@ -266,8 +311,8 @@
          <th>Value</th>
        </tr>
        <tr ng-repeat="item in compare.rightCharacterData.skills.passive">
-         <td>{{item.skill.name}}</td>
-         <td>{{item.skill.description}}</td>
+         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{item.skill.icon}}.png" /></td>
+         <td><strong>{{item.skill.name}}</strong><br />{{item.skill.description}}</td>
        </tr>
      </table>
 
