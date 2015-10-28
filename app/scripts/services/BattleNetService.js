@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('app')
-    .service('BattleNetService', BattleNetService);
+    .factory('BattleNetService', BattleNetService);
 
   BattleNetService.$inject = ['$http'];
 

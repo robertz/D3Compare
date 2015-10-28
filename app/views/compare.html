@@ -29,17 +29,90 @@
    <div class="left-data-wrap" ng-show="compare.leftActive">
 
      <table class="table table-striped">
+
        <tr>
          <th>Slot</th>
-         <th>Description</th>
+         <th>Icon</th>
+         <th>Name</th>
        </tr>
-       <tr ng-repeat="item in compare.leftCharacterData.items">
-         <td>{{$index}}</td>
-         <td>{{item.name}}</td>
+
+       <tr>
+         <td>Head</td>
+         <td><img ng-if="compare.leftCharacterData.items.head.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.head.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.head.name}}</td>
        </tr>
+
+       <tr>
+         <td>Neck</td>
+         <td><img ng-if="compare.leftCharacterData.items.neck.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.neck.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.neck.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Shoulders</td>
+         <td><img ng-if="compare.leftCharacterData.items.shoulders.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.shoulders.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.shoulders.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Torso</td>
+         <td><img ng-if="compare.leftCharacterData.items.torso.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.torso.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.torso.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Bracers</td>
+         <td><img ng-if="compare.leftCharacterData.items.bracers.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.bracers.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.bracers.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Main Hand</td>
+         <td><img ng-if="compare.leftCharacterData.items.mainHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.mainHand.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.mainHand.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Off Hand</td>
+         <td><img ng-if="compare.leftCharacterData.items.offHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.offHand.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.offHand.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Waist</td>
+         <td><img ng-if="compare.leftCharacterData.items.waist.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.waist.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.waist.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Legs</td>
+         <td><img ng-if="compare.leftCharacterData.items.legs.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.legs.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.legs.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Feet</td>
+         <td><img ng-if="compare.leftCharacterData.items.feet.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.feet.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.feet.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Left Finger</td>
+         <td><img ng-if="compare.leftCharacterData.items.leftFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.leftFinger.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.leftFinger.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Right Finger</td>
+         <td><img ng-if="compare.leftCharacterData.items.rightFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.rightFinger.icon}}.png" /></td>
+         <td>{{compare.leftCharacterData.items.rightFinger.name}}</td>
+       </tr>
+
      </table>
 
-     <table class="table table-striped">
+
+
+     <!-- <table class="table table-striped">
        <tr>
          <th>Key</th>
          <th>Value</th>
@@ -50,7 +123,7 @@
          <td>{{value}}</td>
          <td>{{compare.stats.leftChar[key]}}</td>
        </tr>
-     </table>
+     </table> -->
 
      <table class="table table-striped">
        <tr>
@@ -82,17 +155,88 @@
    <div class="right-data-wrap" ng-show="compare.rightActive">
 
      <table class="table table-striped">
+
        <tr>
          <th>Slot</th>
-         <th>Description</th>
+         <th>Icon</th>
+         <th>Name</th>
        </tr>
-       <tr ng-repeat="item in compare.rightCharacterData.items">
-         <td>{{$index}}</td>
-         <td>{{item.name}}</td>
+
+       <tr>
+         <td>Head</td>
+         <td><img ng-if="compare.rightCharacterData.items.head.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.head.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.head.name}}</td>
        </tr>
+
+       <tr>
+         <td>Neck</td>
+         <td><img ng-if="compare.rightCharacterData.items.neck.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.neck.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.neck.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Shoulders</td>
+         <td><img ng-if="compare.rightCharacterData.items.shoulders.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.shoulders.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.shoulders.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Torso</td>
+         <td><img ng-if="compare.rightCharacterData.items.torso.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.torso.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.torso.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Bracers</td>
+         <td><img ng-if="compare.rightCharacterData.items.bracers.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.bracers.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.bracers.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Main Hand</td>
+         <td><img ng-if="compare.rightCharacterData.items.mainHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.mainHand.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.mainHand.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Off Hand</td>
+         <td><img ng-if="compare.rightCharacterData.items.offHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.offHand.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.offHand.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Waist</td>
+         <td><img ng-if="compare.rightCharacterData.items.waist.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.waist.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.waist.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Legs</td>
+         <td><img ng-if="compare.rightCharacterData.items.legs.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.legs.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.legs.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Feet</td>
+         <td><img ng-if="compare.rightCharacterData.items.feet.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.feet.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.feet.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Left Finger</td>
+         <td><img ng-if="compare.rightCharacterData.items.leftFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.leftFinger.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.leftFinger.name}}</td>
+       </tr>
+
+       <tr>
+         <td>Right Finger</td>
+         <td><img ng-if="compare.rightCharacterData.items.rightFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.rightFinger.icon}}.png" /></td>
+         <td>{{compare.rightCharacterData.items.rightFinger.name}}</td>
+       </tr>
+
      </table>
 
-     <table class="table table-striped">
+     <!-- <table class="table table-striped">
        <tr>
          <th>Key</th>
          <th>Value</th>
@@ -103,7 +247,7 @@
          <td>{{value}}</td>
          <td>{{compare.stats.rightChar[key]}}</td>
        </tr>
-     </table>
+     </table> -->
 
      <table class="table table-striped">
        <tr>

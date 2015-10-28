@@ -65,6 +65,7 @@
         .getHero(vm.leftAccountInput, vm.leftSelect.id)
         .then(function(data) {
           vm.leftActive = true;
+          vm.leftCharacterData = {};
           vm.leftCharacterData = data;
           recalcStatDiffs();
         });
@@ -75,6 +76,7 @@
         .getHero(vm.rightAccountInput, vm.rightSelect.id)
         .then(function(data) {
           vm.rightActive = true;
+          vm.rightCharacterData = {};
           vm.rightCharacterData = data;
           recalcStatDiffs();
         });
