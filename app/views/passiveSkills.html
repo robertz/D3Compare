@@ -1,0 +1,11 @@
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th colspan="2">Passive Abilities</th>
+    </tr>
+    <tr ng-repeat="item in obj">
+      <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{item.skill.icon}}.png" /></td>
+      <td><strong>{{item.skill.name}}</strong><br />{{item.skill.description}}</td>
+    </tr>
+  </table>
+</div>

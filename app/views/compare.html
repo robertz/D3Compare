@@ -29,6 +29,17 @@
    <div class="left-data-wrap" ng-show="compare.leftActive">
 
      <table class="table table-striped">
+       <tr>
+         <th>Key</th>
+         <th>Value</th>
+       </tr>
+       <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
+         <td>{{key}}</td>
+         <td>{{value | number}} <span ng-if="compare.stats.leftChar[key] < 0" class="pull-right"><strong>({{compare.stats.leftChar[key] | number}})<strong></span></td>
+       </tr>
+     </table>
+
+     <table class="table table-striped">
 
        <tr>
          <th>Slot</th>
@@ -150,25 +161,27 @@
 
      </table>
 
-
-
-     <table class="table table-striped">
-       <tr>
-         <th>Key</th>
-         <th>Value</th>
-       </tr>
-       <tr ng-repeat="item in compare.leftCharacterData.skills.passive">
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{item.skill.icon}}.png" /></td>
-         <td><strong>{{item.skill.name}}</strong><br />{{item.skill.description}}</td>
-       </tr>
-     </table>
-
+     <passive-skill obj="compare.leftCharacterData.skills.passive" />
    </div>
    <pre ng-if="compare.debug">{{compare.leftCharacterData | json}}</pre>
  </div>
 
  <div class="col-md-6">
    <div class="right-data-wrap" ng-show="compare.rightActive">
+
+
+      <table class="table table-striped">
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+        <tr ng-repeat="(key, value) in compare.rightCharacterData.stats">
+          <td>{{key}}</td>
+          <td>{{value | number}} <span ng-if="compare.stats.rightChar[key] < 0" class="pull-right"><strong>({{compare.stats.rightChar[key] | number}})</strong></span></td>
+        </tr>
+      </table>
+
+
 
      <table class="table table-striped">
 
@@ -252,8 +265,6 @@
 
      </table>
 
-
-
      <table class="table table-striped">
 
        <tr>
@@ -294,16 +305,7 @@
 
      </table>
 
-     <table class="table table-striped">
-       <tr>
-         <th>Key</th>
-         <th>Value</th>
-       </tr>
-       <tr ng-repeat="item in compare.rightCharacterData.skills.passive">
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{item.skill.icon}}.png" /></td>
-         <td><strong>{{item.skill.name}}</strong><br />{{item.skill.description}}</td>
-       </tr>
-     </table>
+     <passive-skill obj="compare.rightCharacterData.skills.passive" />
 
    </div>
    <pre ng-if="compare.debug">{{compare.rightCharacterData | json}}</pre>

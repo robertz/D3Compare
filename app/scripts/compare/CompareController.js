@@ -1,4 +1,5 @@
 /*jshint -W089 */
+
 (function() {
   'use strict';
   angular

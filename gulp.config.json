@@ -20,5 +20,8 @@
   "css": [
     "app/content/site.css"
   ],
+  "fonts": [
+    "app/vendor/font-awesome/fonts/**/*.*"
+  ],
   "build": "./build/"
 }

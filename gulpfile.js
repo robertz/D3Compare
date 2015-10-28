@@ -84,6 +84,14 @@ gulp.task('css', function() {
     .pipe(gulp.dest(paths.build + 'content'));
 });
 
+gulp.task('fonts', function() {
+    var dest = paths.build + 'fonts';
+    log('Copying fonts');
+    return gulp
+        .src(paths.fonts)
+        .pipe(gulp.dest(dest));
+});
+
 gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss'], function() {
     log('Rev\'ing files and building index.html');
 
@@ -128,7 +136,7 @@ gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss'], function() {
     }
 });
 
-gulp.task('build', ['rev-and-inject'], function() {
+gulp.task('build', ['rev-and-inject', 'fonts'], function() {
   log('Building app...');
 })
 
