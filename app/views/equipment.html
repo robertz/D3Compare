@@ -1,0 +1,14 @@
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>Slot</th>
+      <th>Icon</th>
+      <th>Name</th>
+    </tr>
+    <tr ng-repeat="item in keys">
+      <td>{{item.label}}</td>
+      <td><img ng-if="obj[item.key]" ng-src="http://media.blizzard.com/d3/icons/items/small/{{obj[item.key].icon}}.png" /></td>
+      <td>{{obj[item.key].name}}</td>
+    </tr>
+  </table>
+</div>
