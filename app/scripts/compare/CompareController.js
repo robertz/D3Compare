@@ -6,9 +6,9 @@
     .module('app')
     .controller('CompareController', CompareController);
 
-  CompareController.$inject = ['$rootScope', '$scope', 'BattleNetService'];
+  CompareController.$inject = ['$rootScope', '$scope', 'BattleNetService', 'DataStoreService'];
 
-  function CompareController($rootScope, $scope, BattleNetService) {
+  function CompareController($rootScope, $scope, BattleNetService, DataStoreService) {
     var vm = this;
 
     vm.leftAccountInput = 'mordhel-1221';
@@ -31,14 +31,7 @@
     };
 
     // Remap payload class variables
-    vm.classLabel = {
-      'barbarian': 'Barbarian',
-      'crusader': 'Crusader',
-      'demon-hunter': 'Demon Hunter',
-      'monk': 'Monk',
-      'witch-doctor': 'Witch Doctor',
-      'wizard': 'Wizard'
-    };
+    vm.classLabel = DataStoreService.getClassLabels();
 
     vm.leftActive = false;
     vm.rightActive = false;

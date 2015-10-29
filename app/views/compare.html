@@ -1,312 +1,208 @@
 <div class="row">
 
-   <div class="col-md-6 form-inline">
-     <input type="text" class="form-control" ng-model="compare.leftAccountInput" />
-     <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getLeftAccount()" />
-   </div>
-   <div class="col-md-6 form-inline">
-     <input type="text" class="form-control" ng-model="compare.rightAccountInput" />
-     <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getRightAccount()" />
-   </div>
- </div>
+  <div class="col-md-6 form-inline">
+    <input type="text" class="form-control" ng-model="compare.leftAccountInput" />
+    <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getLeftAccount()" />
+  </div>
+  <div class="col-md-6 form-inline">
+    <input type="text" class="form-control" ng-model="compare.rightAccountInput" />
+    <input type="button" class="btn btn-primary" value="Get Account" ng-click="compare.getRightAccount()" />
+  </div>
+</div>
 
- <div class="col-md-6">
-   <br />
-   <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.leftAccount.heroes track by hero.id" ng-model="compare.leftSelect" ng-change="compare.getLeftHero()" class="form-control">
-     <option value="">Select Character</option>
-   </select>
-   <br />
- </div>
- <div class="col-md-6">
-   <br />
-   <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.rightAccount.heroes track by hero.id" ng-model="compare.rightSelect" ng-change="compare.getRightHero()" class="form-control">
-     <option value="">Select Character</option>
-   </select>
-   <br />
- </div>
+<div class="col-md-6">
+  <br />
+  <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.leftAccount.heroes track by hero.id" ng-model="compare.leftSelect" ng-change="compare.getLeftHero()" class="form-control">
+    <option value="">Select Character</option>
+  </select>
+  <br />
+</div>
+<div class="col-md-6">
+  <br />
+  <select ng-options="hero.name + ', ' + hero.level + ' ' + compare.classLabel[hero.class] + ' (' +  hero.paragonLevel + ')' for hero in compare.rightAccount.heroes track by hero.id" ng-model="compare.rightSelect" ng-change="compare.getRightHero()" class="form-control">
+    <option value="">Select Character</option>
+  </select>
+  <br />
+</div>
 
- <div class="col-md-6">
-   <div class="left-data-wrap" ng-show="compare.leftActive">
+<div class="col-md-6">
+  <div class="left-data-wrap" ng-show="compare.leftActive">
 
-     <table class="table table-striped">
-       <tr>
-         <th>Key</th>
-         <th>Value</th>
-       </tr>
-       <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
-         <td>{{key}}</td>
-         <td>{{value | number}} <span ng-if="compare.stats.leftChar[key] < 0" class="pull-right"><strong>({{compare.stats.leftChar[key] | number}})<strong></span></td>
-       </tr>
-     </table>
+    <table class="table table-striped">
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+      <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
+        <td>{{key}}</td>
+        <td>{{value | number}}
+          <span ng-if="compare.stats.leftChar[key] < 0" class="pull-right">
+            <strong>({{compare.stats.leftChar[key] | number}})
+              <strong>
+          </span>
+        </td>
+      </tr>
+    </table>
 
-     <table class="table table-striped">
+    <equipment-list obj="compare.leftCharacterData.items"></equipment-list>
 
-       <tr>
-         <th>Slot</th>
-         <th>Icon</th>
-         <th>Name</th>
-       </tr>
+    <table class="table table-striped">
 
-       <tr>
-         <td>Head</td>
-         <td><img ng-if="compare.leftCharacterData.items.head.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.head.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.head.name}}</td>
-       </tr>
+      <tr>
+        <td>LMB</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[0].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[0].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[0].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Neck</td>
-         <td><img ng-if="compare.leftCharacterData.items.neck.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.neck.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.neck.name}}</td>
-       </tr>
+      <tr>
+        <td>RMB</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[1].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[1].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[1].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Shoulders</td>
-         <td><img ng-if="compare.leftCharacterData.items.shoulders.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.shoulders.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.shoulders.name}}</td>
-       </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[2].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[2].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[2].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Torso</td>
-         <td><img ng-if="compare.leftCharacterData.items.torso.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.torso.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.torso.name}}</td>
-       </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[3].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[3].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[3].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Bracers</td>
-         <td><img ng-if="compare.leftCharacterData.items.bracers.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.bracers.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.bracers.name}}</td>
-       </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[4].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[4].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[4].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Main Hand</td>
-         <td><img ng-if="compare.leftCharacterData.items.mainHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.mainHand.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.mainHand.name}}</td>
-       </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[5].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.leftCharacterData.skills.active[5].skill.name}}</strong>
+          <br />{{compare.leftCharacterData.skills.active[5].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Off Hand</td>
-         <td><img ng-if="compare.leftCharacterData.items.offHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.offHand.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.offHand.name}}</td>
-       </tr>
+    </table>
 
-       <tr>
-         <td>Waist</td>
-         <td><img ng-if="compare.leftCharacterData.items.waist.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.waist.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.waist.name}}</td>
-       </tr>
+    <passive-skill obj="compare.leftCharacterData.skills.passive"></passive-skill>
 
-       <tr>
-         <td>Legs</td>
-         <td><img ng-if="compare.leftCharacterData.items.legs.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.legs.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.legs.name}}</td>
-       </tr>
+  </div>
+  <pre ng-if="compare.debug">{{compare.leftCharacterData | json}}</pre>
+</div>
 
-       <tr>
-         <td>Feet</td>
-         <td><img ng-if="compare.leftCharacterData.items.feet.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.feet.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.feet.name}}</td>
-       </tr>
-
-       <tr>
-         <td>Left Finger</td>
-         <td><img ng-if="compare.leftCharacterData.items.leftFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.leftFinger.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.leftFinger.name}}</td>
-       </tr>
-
-       <tr>
-         <td>Right Finger</td>
-         <td><img ng-if="compare.leftCharacterData.items.rightFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.leftCharacterData.items.rightFinger.icon}}.png" /></td>
-         <td>{{compare.leftCharacterData.items.rightFinger.name}}</td>
-       </tr>
-
-     </table>
-
-     <table class="table table-striped">
-
-       <tr>
-         <td>LMB</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[0].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[0].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[0].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>RMB</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[1].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[1].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[1].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>1</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[2].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[2].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[2].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>2</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[3].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[3].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[3].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>3</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[4].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[4].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[4].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>4</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.leftCharacterData.skills.active[5].skill.icon}}.png" /></td>
-         <td><strong>{{compare.leftCharacterData.skills.active[5].skill.name}}</strong><br />{{compare.leftCharacterData.skills.active[5].rune.name}}</td>
-       </tr>
-
-     </table>
-
-     <passive-skill obj="compare.leftCharacterData.skills.passive" />
-   </div>
-   <pre ng-if="compare.debug">{{compare.leftCharacterData | json}}</pre>
- </div>
-
- <div class="col-md-6">
-   <div class="right-data-wrap" ng-show="compare.rightActive">
-
-
-      <table class="table table-striped">
-        <tr>
-          <th>Key</th>
-          <th>Value</th>
-        </tr>
-        <tr ng-repeat="(key, value) in compare.rightCharacterData.stats">
-          <td>{{key}}</td>
-          <td>{{value | number}} <span ng-if="compare.stats.rightChar[key] < 0" class="pull-right"><strong>({{compare.stats.rightChar[key] | number}})</strong></span></td>
-        </tr>
-      </table>
+<div class="col-md-6">
+  <div class="right-data-wrap" ng-show="compare.rightActive">
+    <table class="table table-striped">
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+      <tr ng-repeat="(key, value) in compare.rightCharacterData.stats">
+        <td>{{key}}</td>
+        <td>{{value | number}}
+          <span ng-if="compare.stats.rightChar[key] < 0" class="pull-right">
+            <strong>({{compare.stats.rightChar[key] | number}})</strong>
+          </span>
+        </td>
+      </tr>
+    </table>
 
 
 
-     <table class="table table-striped">
+    <equipment-list obj="compare.rightCharacterData.items"></equipment-list>
 
-       <tr>
-         <th>Slot</th>
-         <th>Icon</th>
-         <th>Name</th>
-       </tr>
+    <table class="table table-striped">
 
-       <tr>
-         <td>Head</td>
-         <td><img ng-if="compare.rightCharacterData.items.head.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.head.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.head.name}}</td>
-       </tr>
+      <tr>
+        <td>LMB</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[0].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[0].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[0].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Neck</td>
-         <td><img ng-if="compare.rightCharacterData.items.neck.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.neck.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.neck.name}}</td>
-       </tr>
+      <tr>
+        <td>RMB</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[1].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[1].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[1].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Shoulders</td>
-         <td><img ng-if="compare.rightCharacterData.items.shoulders.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.shoulders.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.shoulders.name}}</td>
-       </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[2].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[2].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[2].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Torso</td>
-         <td><img ng-if="compare.rightCharacterData.items.torso.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.torso.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.torso.name}}</td>
-       </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[3].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[3].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[3].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Bracers</td>
-         <td><img ng-if="compare.rightCharacterData.items.bracers.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.bracers.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.bracers.name}}</td>
-       </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[4].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[4].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[4].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Main Hand</td>
-         <td><img ng-if="compare.rightCharacterData.items.mainHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.mainHand.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.mainHand.name}}</td>
-       </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          <img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[5].skill.icon}}.png" />
+        </td>
+        <td>
+          <strong>{{compare.rightCharacterData.skills.active[5].skill.name}}</strong>
+          <br />{{compare.rightCharacterData.skills.active[5].rune.name}}</td>
+      </tr>
 
-       <tr>
-         <td>Off Hand</td>
-         <td><img ng-if="compare.rightCharacterData.items.offHand.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.offHand.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.offHand.name}}</td>
-       </tr>
+    </table>
 
-       <tr>
-         <td>Waist</td>
-         <td><img ng-if="compare.rightCharacterData.items.waist.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.waist.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.waist.name}}</td>
-       </tr>
+    <passive-skill obj="compare.rightCharacterData.skills.passive" />
 
-       <tr>
-         <td>Legs</td>
-         <td><img ng-if="compare.rightCharacterData.items.legs.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.legs.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.legs.name}}</td>
-       </tr>
-
-       <tr>
-         <td>Feet</td>
-         <td><img ng-if="compare.rightCharacterData.items.feet.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.feet.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.feet.name}}</td>
-       </tr>
-
-       <tr>
-         <td>Left Finger</td>
-         <td><img ng-if="compare.rightCharacterData.items.leftFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.leftFinger.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.leftFinger.name}}</td>
-       </tr>
-
-       <tr>
-         <td>Right Finger</td>
-         <td><img ng-if="compare.rightCharacterData.items.rightFinger.id" ng-src="http://media.blizzard.com/d3/icons/items/small/{{compare.rightCharacterData.items.rightFinger.icon}}.png" /></td>
-         <td>{{compare.rightCharacterData.items.rightFinger.name}}</td>
-       </tr>
-
-     </table>
-
-     <table class="table table-striped">
-
-       <tr>
-         <td>LMB</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[0].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[0].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[0].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>RMB</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[1].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[1].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[1].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>1</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[2].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[2].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[2].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>2</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[3].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[3].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[3].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>3</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[4].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[4].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[4].rune.name}}</td>
-       </tr>
-
-       <tr>
-         <td>4</td>
-         <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{compare.rightCharacterData.skills.active[5].skill.icon}}.png" /></td>
-         <td><strong>{{compare.rightCharacterData.skills.active[5].skill.name}}</strong><br />{{compare.rightCharacterData.skills.active[5].rune.name}}</td>
-       </tr>
-
-     </table>
-
-     <passive-skill obj="compare.rightCharacterData.skills.passive" />
-
-   </div>
-   <pre ng-if="compare.debug">{{compare.rightCharacterData | json}}</pre>
- </div>
+  </div>
+  <pre ng-if="compare.debug">{{compare.rightCharacterData | json}}</pre>
+</div>
