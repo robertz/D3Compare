@@ -10,7 +10,8 @@
   function DataStoreService() {
     return {
       getClassLabels: getClassLabels,
-      getEquipmentSlots: getEquipmentSlots
+      getEquipmentSlots: getEquipmentSlots,
+      getActiveSkillSlots: getActiveSkillSlots
     };
 
     function getClassLabels() {
@@ -38,6 +39,17 @@
         {key: 'feet', label: 'Feet'},
         {key: 'leftFinger', label: 'Left Finger'},
         {key: 'rightFinger', label: 'Right Finger'}
+      ];
+    }
+
+    function getActiveSkillSlots() {
+      return [
+        'LMB',
+        'RMB',
+        '1',
+        '2',
+        '3',
+        '4'
       ];
     }
 
