@@ -3,7 +3,8 @@
   angular
     .module('app', [
       'ui.router',
-      'ngDialog'
+      'ngDialog',
+      'ui.bootstrap'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/compare');

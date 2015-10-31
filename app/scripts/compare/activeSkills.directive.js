@@ -5,9 +5,9 @@
     .module('app')
     .directive('activeSkills', ActiveSKills);
 
-  ActiveSKills.$inject = [];
+  ActiveSKills.$inject = ['DataStoreService'];
 
-  function ActiveSKills() {
+  function ActiveSKills(DataStoreService) {
     return {
       restrict: 'E',
       scope: {
@@ -15,7 +15,7 @@
       },
       templateUrl: 'views/activeSkills.html',
       link: function(scope, elem, attrs) {
-
+        scope.keys = DataStoreService.getActiveSkillSlots()
       }
     };
   }
