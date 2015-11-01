@@ -9,7 +9,8 @@
   function BattleNetService($http) {
     return {
       getAccount: getBNetAccount,
-      getHero: getBNetHero
+      getHero: getBNetHero,
+      getDataByTooltip: getDataByTooltip
     };
 
     function getBNetAccount(account) {
@@ -25,5 +26,13 @@
           return response.data;
         });
     }
+
+    function getDataByTooltip(tooltipParams) {
+      return $http.get('https://us.battle.net/api/d3/' + tooltipParams)
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
   }
 })();

@@ -1,13 +1,16 @@
-<div>
-  <table class="table table-striped">
-    <tr ng-repeat="item in keys">
-      <td>{{keys[$index]}}</td>
-      <td><img ng-src="http://media.blizzard.com/d3/icons/skills/42/{{obj[$index].skill.icon}}.png" /></td>
-      <td>
+<div class="active-skills">
+  <h4>Active Skills</h4>
+  <hr />
+  <div class="row">
+    <div ng-repeat="item in keys" class="col-md-6" style="padding: 4px;">
+      <div class="col-md-3">
+        <img ng-if="obj[$index].skill.name" ng-src="http://media.blizzard.com/d3/icons/skills/42/{{obj[$index].skill.icon}}.png" />
+      </div>
+      <div class="col-md-9">
         <strong uib-tooltip="{{obj[$index].skill.description}}" tooltip-placement="top" tooltip-trigger="mouseenter">{{obj[$index].skill.name}}</strong>
         <br />
         <span uib-tooltip="{{obj[$index].rune.description}}" tooltip-placement="top" tooltip-trigger="mouseenter">{{obj[$index].rune.name}}<span>
-      </td>
-    </tr>
-  </table>
+      </div>
+    </div>
+  </div>
 </div>

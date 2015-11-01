@@ -27,53 +27,22 @@
 
 <div class="col-md-6">
   <div class="left-data-wrap" ng-show="compare.leftActive">
-    <table class="table table-striped">
-      <tr>
-        <th>Key</th>
-        <th>Value</th>
-      </tr>
-      <tr ng-repeat="(key, value) in compare.leftCharacterData.stats">
-        <td>{{key}}</td>
-        <td>{{value | number}}
-          <span ng-if="compare.stats.leftChar[key] < 0" class="pull-right">
-            <strong>({{compare.stats.leftChar[key] | number}})
-              <strong>
-          </span>
-        </td>
-      </tr>
-    </table>
-
+    <attribute-list obj="compare.leftCharacterData.stats"></attribute-list>
     <equipment-list obj="compare.leftCharacterData.items"></equipment-list>
     <active-skills obj="compare.leftCharacterData.skills.active"></active-skills>
-    <passive-skill obj="compare.leftCharacterData.skills.passive"></passive-skill>
-
+    <passive-skills obj="compare.leftCharacterData.skills.passive"></passive-skills>
+    <legendary-powers obj="compare.leftCharacterData.legendaryPowers"></legendary-powers>
   </div>
   <pre ng-if="compare.debug">{{compare.leftCharacterData | json}}</pre>
 </div>
 
 <div class="col-md-6">
   <div class="right-data-wrap" ng-show="compare.rightActive">
-    <table class="table table-striped">
-      <tr>
-        <th>Key</th>
-        <th>Value</th>
-      </tr>
-      <tr ng-repeat="(key, value) in compare.rightCharacterData.stats">
-        <td>{{key}}</td>
-        <td>{{value | number}}
-          <span ng-if="compare.stats.rightChar[key] < 0" class="pull-right">
-            <strong>({{compare.stats.rightChar[key] | number}})</strong>
-          </span>
-        </td>
-      </tr>
-    </table>
-
-
-
+    <attribute-list obj="compare.rightCharacterData.stats"></attribute-list>
     <equipment-list obj="compare.rightCharacterData.items"></equipment-list>
     <active-skills obj="compare.rightCharacterData.skills.active"></active-skills>
-    <passive-skill obj="compare.rightCharacterData.skills.passive"></passive-skill>
-
+    <passive-skills obj="compare.rightCharacterData.skills.passive"></passive-skills>
+    <legendary-powers obj="compare.rightCharacterData.legendaryPowers"></legendary-powers>
   </div>
   <pre ng-if="compare.debug">{{compare.rightCharacterData | json}}</pre>
 </div>

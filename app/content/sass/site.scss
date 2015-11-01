@@ -36,4 +36,49 @@ body {
   }
 }
 
+/*
+* Template styles
+*/
+.attributes {
+  background-color: #181411;
+  color: #F3E6D0;
+  padding: 8px;
+  margin-bottom: 24px;
+
+  hr {
+    color: #312A1E;
+  }
+  span {
+    color: #786C54;
+  }
+
+}
+
+.active-skills {
+  background-color: #181411;
+  color: #F3E6D0;
+  padding: 8px;
+  margin-bottom: 24px;
+
+  hr {
+    color: #312A1E;
+  }
+  span {
+    color: #786C54;
+  }
+}
+
+.passive-skills {
+  background-color: #181411;
+  color: #F3E6D0;
+  padding: 8px;
+  margin-bottom: 24px;
+
+  hr {
+    color: #312A1E;
+  }
+  span {
+    color: #786C54;
+  }
+}
 @import 'ngdialog';

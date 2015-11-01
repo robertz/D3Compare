@@ -3,19 +3,18 @@
 
   angular
     .module('app')
-    .directive('passiveSkill', PassiveSkill);
+    .directive('attributeList', AttributeList);
 
-  PassiveSkill.$inject = [];
+  AttributeList.$inject = [];
 
-  function PassiveSkill() {
+  function AttributeList() {
     return {
       restrict: 'E',
       scope: {
         obj: '='
       },
-      templateUrl: 'views/passiveSkills.html',
+      templateUrl: 'views/attributeList.html',
       link: function(scope, elem, attrs) {
-
       }
     };
   }
