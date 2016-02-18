@@ -53,7 +53,7 @@
     "disallowSpacesInsideParentheses": true,
 
 
-    "disallowMultipleLineBreaks": false,
+    // "disallowMultipleLineBreaks": false,
 
 
     "requireLineFeedAtFileEnd": null,
@@ -73,5 +73,7 @@
     "requireMultipleVarDecl": null,
     "requireOperatorBeforeLineBreak": null,
     "requireParenthesesAroundIIFE": null,
-    "validateQuoteMarks": null
+    "validateQuoteMarks": null,
+    "requireTrailingComma": null,
+    "requireSpacesInAnonymousFunctionExpression": null
 }

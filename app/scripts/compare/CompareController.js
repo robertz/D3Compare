@@ -81,6 +81,7 @@
       if (!(vm.leftActive && vm.rightActive)) {
         return;
       }
+      
       for (var key in vm.leftCharacterData.stats) {
         vm.stats.leftChar[key] = vm.leftCharacterData.stats[key] - vm.rightCharacterData.stats[key];
         vm.stats.rightChar[key] = vm.rightCharacterData.stats[key] - vm.leftCharacterData.stats[key];

@@ -15,7 +15,7 @@
       },
       templateUrl: 'views/activeSkills.html',
       link: function(scope, elem, attrs) {
-        scope.keys = DataStoreService.getActiveSkillSlots()
+        scope.keys = DataStoreService.getActiveSkillSlots();
       }
     };
   }
