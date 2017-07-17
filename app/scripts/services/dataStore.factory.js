@@ -21,7 +21,8 @@
         'demon-hunter': 'Demon Hunter',
         'monk': 'Monk',
         'witch-doctor': 'Witch Doctor',
-        'wizard': 'Wizard'
+        'wizard': 'Wizard',
+        'necromancer': 'Necromancer'
       };
     }
 
